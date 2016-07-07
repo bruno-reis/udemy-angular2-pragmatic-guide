@@ -1,4 +1,4 @@
-System.register(['angular2/core', "./favourite.component"], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,32 @@ System.register(['angular2/core', "./favourite.component"], function(exports_1, 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, favourite_component_1;
-    var AppComponent;
+    var core_1;
+    var FavouriteComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (favourite_component_1_1) {
-                favourite_component_1 = favourite_component_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            FavouriteComponent = (function () {
+                function FavouriteComponent() {
+                    this.isFavourite = false;
                 }
-                AppComponent = __decorate([
+                FavouriteComponent.prototype.onClick = function () {
+                    this.isFavourite = !this.isFavourite;
+                };
+                FavouriteComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: '<h1>My First Angular 2 App</h1><favourite></favourite>',
-                        directives: [favourite_component_1.FavouriteComponent]
+                        selector: 'favourite',
+                        template: "\n\t\t\t\t\t\t<i class=\"glyphicon\"\n  \t\t\t\t  [class.glyphicon-star-empty]=\"!isFavourite\"\n   \t\t\t   \t[class.glyphicon-star]=\"isFavourite\"\n  \t\t\t\t  (click)=\"onClick()\">\n\t\t\t      </i>\n"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], FavouriteComponent);
+                return FavouriteComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("FavouriteComponent", FavouriteComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=favourite.component.js.map
