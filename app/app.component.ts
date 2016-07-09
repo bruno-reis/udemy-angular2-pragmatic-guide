@@ -3,8 +3,17 @@ import {FavouriteComponent} from "./favourite.component";
 
 @Component({
   selector: 'my-app',
-  template: '<h1>My First Angular 2 App</h1><favourite></favourite>',
+  template: '<favourite [isFavourite]="post.isFavourite" (change)="onFavouriteChange($event)"></favourite>',
   directives: [FavouriteComponent]
 })
 
-export class AppComponent { }
+export class AppComponent {
+  post = {
+    tittle: "Title",
+    isFavourite: true
+  };
+
+  onFavouriteChange($event) {
+    console.log($event)
+  }
+}
