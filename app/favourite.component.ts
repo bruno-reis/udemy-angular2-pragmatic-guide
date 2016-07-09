@@ -8,7 +8,15 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core'
    			   	[class.glyphicon-star]="isFavourite"
   				  (click)="onClick()">
 			      </i>
-`
+			      `,
+  styles: [`
+            .glyphicon {
+              font-size: 50px;
+              margin: 20px;
+            }
+            .glyphicon-star {
+              color: purple;
+          `]
 })
 
 export class FavouriteComponent {
