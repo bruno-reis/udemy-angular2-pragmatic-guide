@@ -1,19 +1,23 @@
 import {Component} from 'angular2/core';
-import {VoteComponent} from "./vote.component";
+import {TweetComponent} from "./tweet.component";
+import {TweetService} from "./TweetService";
 
 @Component({
   selector: 'my-app',
-  template: '<vote [voteCount]="post.voteCount" [myVote]="post.myVote" (vote)="onVote($event)"></vote>',
-  directives: [VoteComponent]
+  directives: [TweetComponent],
+  providers: [TweetService],
+  template: `
+            <div *ngFor="#tweet of tweets">
+              <tweet [tweet]="tweet"></tweet>
+            </div>
+            `
 })
 
 export class AppComponent {
-  post = {
-    voteCount: 10,
-    myVote: 0
-  };
+  tweets;
 
-  onVote($event) {
-    
+  constructor(tweetService: TweetService) {
+    this.tweets = tweetService.getTweets();
   }
+  
 }

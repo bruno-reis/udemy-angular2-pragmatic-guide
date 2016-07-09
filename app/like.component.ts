@@ -12,8 +12,8 @@ import {Component, Input} from 'angular2/core'
             `,
   styles: [`
             .glyphicon {
-              font-size: 50px;
-              margin: 30px 10px 30px 30px;
+              font-size: 15px;
+              margin: 0px 0px 0px 0px;
               cursor: pointer;
             }
             .glyphicon-heart {
@@ -23,14 +23,14 @@ import {Component, Input} from 'angular2/core'
               color: #ccc;
             }
             .counter {
-              font-size: 60px;
+              font-size: 15px;
             }
           `]
 })
 
 export class LikeComponent {
   @Input() liked = true;
-  @Input() likesCounter = 10;
+  @Input() likesCounter = 11;
 
   onClick() {
     this.liked = !this.liked;
