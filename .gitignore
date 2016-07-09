@@ -1,5 +1,5 @@
 .idea
-node_modules
-cheatsets
-./app/*.js
-./app/*.js.map
+node_modules/
+cheatsets/
+app/*.js
+app/*.js.map
