@@ -1,16 +1,19 @@
 import {Component} from 'angular2/core';
-import {FavouriteComponent} from "./favourite.component";
-import {LikeComponent} from "./like.component";
+import {VoteComponent} from "./vote.component";
 
 @Component({
   selector: 'my-app',
-  template: '<like [liked]="post.liked" [likesCounter]="post.likesCounter"></like>',
-  directives: [FavouriteComponent, LikeComponent]
+  template: '<vote [voteCount]="post.voteCount" [myVote]="post.myVote" (vote)="onVote($event)"></vote>',
+  directives: [VoteComponent]
 })
 
 export class AppComponent {
   post = {
-    liked: false,
-    likesCounter: 12
+    voteCount: 10,
+    myVote: 0
   };
+
+  onVote($event) {
+    
+  }
 }
