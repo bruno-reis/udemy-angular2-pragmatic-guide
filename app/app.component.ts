@@ -1,12 +1,11 @@
 import {Component} from 'angular2/core';
-import {AccordionComponent} from "./accordion.component";
+import {ContactFormComponent} from "./contact-form.component";
 
 @Component({
   selector: 'my-app',
-  directives: [AccordionComponent],
+  directives: [ContactFormComponent],
   template: `
-            <accordion title="Foo">Foo Content</accordion>
-            <accordion title="Bar">Bar Content</accordion>
+            <contact-form></contact-form>
             `
 })
 
