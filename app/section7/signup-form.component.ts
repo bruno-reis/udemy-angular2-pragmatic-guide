@@ -4,7 +4,7 @@ import {UsernameValidators} from './usernameValidators';
 
 @Component({
   selector: 'signup-form',
-  templateUrl: 'app/signup-form.component.html'
+  templateUrl: 'app/section7/signup-form.component.html'
 })
 
 export class SignUpFormComponent {
