@@ -1,13 +1,18 @@
 import {Component} from 'angular2/core';
-import {ChangePasswordFormComponent} from "./section7/change-password-form.component";
+import {PostService} from './section9/post.service';
+import {HTTP_PROVIDERS} from 'angular2/http';
 
 @Component({
   selector: 'my-app',
-  directives: [ChangePasswordFormComponent],
+  providers: [PostService, HTTP_PROVIDERS],
   template: `
-        <change-password-form></change-password-form>
-    `
+             
+            `
 })
 
 export class AppComponent {
+  constructor(private _postService: PostService) {
+    this._postService.getPosts()
+      .subscribe( posts => console.log(posts));
+  }
 }
