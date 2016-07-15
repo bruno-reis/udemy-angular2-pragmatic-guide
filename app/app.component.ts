@@ -1,21 +1,22 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {AlbumsComponent} from "./section10/albums.component";
-import {AlbumComponent} from "./section10/album.component";
-import {ContactComponent} from "./section10/contact.component";
+import {ArchiveComponent} from "./section10/archives.component";
+import {HomeComponent} from "./section10/home.component";
 
 @RouteConfig([
-  {path: '/albums', name: 'Albums', component: AlbumsComponent, useAsDefault: true},
-  {path: '/albums/:id', name: 'Album', component: AlbumComponent},
-  {path: '/contact', name: 'Contact', component: ContactComponent},
-  {path: '/*other', name: 'Other', redirectTo: ['Albums']}
+  {path: '', name: 'Home', component: HomeComponent, useAsDefault: true},
+  {path: '/archives/:year/:month', name: 'Archives', component: ArchiveComponent},
+  {path: '/*other', name: 'Other', redirectTo: ['Home']}
 ])
 
 @Component({
     selector: 'my-app',
-    templateUrl: '/app/app.component.html',
+    template: `
+              <router-outlet></router-outlet>
+              `,
     directives: [ROUTER_DIRECTIVES]
 })
 export class AppComponent {
+ 
 }
