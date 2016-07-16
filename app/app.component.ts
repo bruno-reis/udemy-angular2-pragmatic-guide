@@ -1,21 +1,20 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {ArchiveComponent} from "./section10/archives.component";
 import {HomeComponent} from "./section10/home.component";
+import {NavbarComponent} from "./final-project/navbar.component";
 
 @RouteConfig([
   {path: '', name: 'Home', component: HomeComponent, useAsDefault: true},
-  {path: '/archives/:year/:month', name: 'Archives', component: ArchiveComponent},
   {path: '/*other', name: 'Other', redirectTo: ['Home']}
 ])
 
 @Component({
     selector: 'my-app',
     template: `
-              <router-outlet></router-outlet>
+              <navbar></navbar>
               `,
-    directives: [ROUTER_DIRECTIVES]
+    directives: [NavbarComponent]
 })
 export class AppComponent {
  
