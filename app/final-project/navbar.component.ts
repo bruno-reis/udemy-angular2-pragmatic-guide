@@ -1,7 +1,9 @@
 import {Component} from 'angular2/core';
+import {RouterLink, Router} from 'angular2/router';
 
 @Component({
   selector: 'navbar',
+  directives: [RouterLink],
   template: `
             <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -18,8 +20,8 @@ import {Component} from 'angular2/core';
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#">Users</a></li>
-        <li><a href="#">Posts</a></li>
+        <li [class.active]="isCurrentRoute(['Users'])"><a [routerLink]="['Users']">Users</a></li>
+        <li [class.active]="isCurrentRoute(['Posts'])"><a [routerLink]="['Posts']">Posts</a></li>
       </ul>   
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -28,5 +30,12 @@ import {Component} from 'angular2/core';
 })
 
 export class NavbarComponent {
-  
+  constructor(private router: Router) {
+
+  }
+
+  isCurrentRoute(route) {
+    let instructions = this.router.generate(route);
+    return this.router.isRouteActive(instructions);
+  }
 }
