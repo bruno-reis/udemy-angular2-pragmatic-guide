@@ -8,6 +8,9 @@ import {UserService} from "./user.service";
 @Component({
   template: `
                <h1>Users Page</h1>
+               <p>
+                <button class="btn btn-primary" [routerLink]="['NewUser']">Add User</button>
+               </p>
                <table class="table table-bordered">
                <thead>
                 <tr>
